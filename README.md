@@ -1,4 +1,4 @@
-# _Application de gestion des salles
+# Application de gestion des salles
 
 ## **Auteur :** Idir Islam Chili
 
