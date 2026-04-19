@@ -1,9 +1,14 @@
+#importation
 import json
 import mysql.connector
 from models.salle import Salle
+
+#Création de la classe
 class DataSalle:
     def __init__(self):
         pass
+
+#Méthode
     def get_connection(self):
         with open ("./data/config.json", "r", encoding="utf-8") as f:
             config = json.load(f)
@@ -15,6 +20,7 @@ class DataSalle:
         )
         return connexion
 
+# Méthode
     def insert_salle(self, salle):
         connexion = self.get_connection()
         crs = connexion.cursor()
@@ -25,7 +31,7 @@ class DataSalle:
         connexion.commit()
         crs.close()
         connexion.close()
-
+# Méthode
     def update_salle(self, salle):
         connexion = self.get_connection()
         crs = connexion.cursor()
@@ -40,10 +46,10 @@ class DataSalle:
             (salle.libelle, salle.type, salle.capacite,salle.code)
             )
         connexion.commit()
-        print ("salle modifiée")
         crs.close()
         connexion.close()
 
+# Méthode
     def delete_salle(self, code):
         connexion = self.get_connection()
         crs = connexion.cursor()
