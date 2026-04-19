@@ -113,5 +113,5 @@ class ViewSalle (ctk.CTk):
             self.treeList.insert(
                 "",
                 "end",
-                values=(s.code, s.libelle, s.type_salle, s.capacite)
+                values=(s.code, s.libelle, s.type, s.capacite)
             )
