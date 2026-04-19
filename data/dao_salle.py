@@ -37,9 +37,10 @@ class DataSalle:
                     capacite = %s
                 WHERE code = %s
             """,
-            (salle.code, salle.libelle, salle.type, salle.capacite)
+            (salle.libelle, salle.type, salle.capacite,salle.code)
             )
         connexion.commit()
+        print ("salle modifiée")
         crs.close()
         connexion.close()
 
