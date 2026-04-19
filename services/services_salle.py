@@ -34,7 +34,7 @@ class ServiceSalle:
     def rechercher_salle(self, code):
         if not code:
             return  False, "Code invalide"
-        self.dao_salle.get_salle (code)
+        return self.dao_salle.get_salle (code)
 
 # Ajout d'une méthode
     def recuperer_salles(self):
