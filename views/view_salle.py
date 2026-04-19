@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from services.services_salle import ServiceSalle
+from models.salle import Salle
 class ViewSalle (ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -40,3 +41,13 @@ class ViewSalle (ctk.CTk):
         self.btn_supprimer.grid(row=0, column=2, padx=5, pady=5)
         self.btn_rechercher = ctk.CTkButton(self.frame_actions, text="Rechercher")
         self.btn_rechercher.grid(row=0, column=3, padx=5, pady=5)
+    def ajouter_salle(self):
+        code = self.entry_code.get()
+        libelle = self.entry_libelle.get()
+        type_salle = self.entry_type.get()
+        capacite = int(self.entry_capacite.get())
+
+        salle = Salle(code, libelle, type_salle, capacite)
+        self.service_salle.ajouter_salle(salle)
+
+        self.btn_ajouter.configure(command=self.ajouter_salle)
