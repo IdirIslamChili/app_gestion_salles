@@ -1,6 +1,7 @@
 import customtkinter as ctk
-from services.services_salle import ServiceSalle
 from models.salle import Salle
+from tkinter import ttk
+
 class ViewSalle (ctk.CTk):
     def __init__(self, service_salle):
         super().__init__()
@@ -45,6 +46,25 @@ class ViewSalle (ctk.CTk):
         self.btn_rechercher = ctk.CTkButton(self.frame_actions, text="Rechercher")
         self.btn_rechercher.grid(row=0, column=3, padx=5, pady=5)
         self.btn_rechercher.configure(command=self.rechercher_salle)
+
+# Cadre Liste des salles
+        self.cadreList = ctk.CTkFrame(self, corner_radius=10, width=400)
+        self.cadreList.pack(pady=10, padx=10)
+        self.treeList = ttk.Treeview(self.cadreList, columns=("code", "libelle", "type", "capacite"),
+                                     show="headings")
+
+# En-têtes
+        self.treeList.heading("code", text="CODE")
+        self.treeList.heading("libelle", text="LIBELLÉ")
+        self.treeList.heading("type", text="TYPE")
+        self.treeList.heading("capacite", text="CAPACITÉ")
+
+# Largeur des colonnes
+        self.treeList.column("code", width=50)
+        self.treeList.column("libelle", width=150)
+        self.treeList.column("type", width=100)
+        self.treeList.column("capacite", width=100)
+        self.treeList.pack(expand=True, fill="both", padx=10, pady=10)
 
     def ajouter_salle(self):
         code = self.entry_code.get()
