@@ -8,6 +8,8 @@ class ViewSalle (ctk.CTk):
         self.title("Gestion des salles")
         self.geometry("700x500")
         ctk.set_appearance_mode("dark")
+
+# cadre informations
         self.frame_info = ctk.CTkFrame(self)
         self.frame_info.pack(padx=10, pady=10, fill="x")
 
@@ -26,3 +28,15 @@ class ViewSalle (ctk.CTk):
         ctk.CTkLabel(self.frame_info, text="Capacité").grid(row=3, column=0, padx=5, pady=5)
         self.entry_capacite = ctk.CTkEntry(self.frame_info)
         self.entry_capacite.grid(row=3, column=1, padx=5, pady=5)
+
+#cadre action
+        self.frame_actions = ctk.CTkFrame(self)
+        self.frame_actions.pack(padx=10, pady=10, fill="x")
+        self.btn_ajouter = ctk.CTkButton(self.frame_actions, text="Ajouter")
+        self.btn_ajouter.grid(row=0, column=0, padx=5, pady=5)
+        self.btn_modifier = ctk.CTkButton(self.frame_actions, text="Modifier")
+        self.btn_modifier.grid(row=0, column=1, padx=5, pady=5)
+        self.btn_supprimer = ctk.CTkButton(self.frame_actions, text="Supprimer")
+        self.btn_supprimer.grid(row=0, column=2, padx=5, pady=5)
+        self.btn_rechercher = ctk.CTkButton(self.frame_actions, text="Rechercher")
+        self.btn_rechercher.grid(row=0, column=3, padx=5, pady=5)
