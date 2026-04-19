@@ -56,7 +56,7 @@ class DataSalle:
     def get_salle(self, code):
         connexion = self.get_connection()
         crs = connexion.cursor()
-        crs.execute("SELECT * FROM salle WHERE code = %", (code,))
+        crs.execute("SELECT * FROM salle WHERE code = %s", (code,))
 
         resultat = crs.fetchone()
 
