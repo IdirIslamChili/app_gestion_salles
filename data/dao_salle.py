@@ -47,7 +47,7 @@ class DataSalle:
     def delete_salle(self, code):
         connexion = self.get_connection()
         crs = connexion.cursor()
-        crs.execute(" DELETE FROM salle WHERE code = %", (code)
+        crs.execute(" DELETE FROM salle WHERE code = %s", (code,)
         )
         connexion.commit()
         crs.close()
@@ -56,7 +56,7 @@ class DataSalle:
     def get_salle(self, code):
         connexion = self.get_connection()
         crs = connexion.cursor()
-        crs.execute("SELECT * FROM salle WHERE code = %", (code))
+        crs.execute("SELECT * FROM salle WHERE code = %", (code,))
 
         resultat = crs.fetchone()
 
