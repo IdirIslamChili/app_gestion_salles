@@ -19,10 +19,11 @@ class DataSalle:
         connexion = self.get_connection()
         crs = connexion.cursor()
         crs.execute(
-            "INSERT INTO utilisateurs VALUES(%s,%s,%s,%s)",
+            "INSERT INTO salle VALUES(%s,%s,%s,%s)",
             (salle.code, salle.libelle, salle.type, salle.capacite)
         )
         connexion.commit()
+        print("Insertion OK :", salle.code)
         crs.close()
         connexion.close()
 
