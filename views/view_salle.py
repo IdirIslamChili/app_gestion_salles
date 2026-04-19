@@ -61,3 +61,10 @@ class ViewSalle (ctk.CTk):
         self.service_salle.modifier_salle(code, libelle, type, capacite)
 
         self.btn_modifier.configure(command=self.modifier_salle)
+
+    def supprimer_salle(self):
+        code = self.entry_code.get()
+
+        self.service_salle.supprimer_salle(code)
+
+        self.btn_supprimer.configure(command=self.supprimer_salle)
