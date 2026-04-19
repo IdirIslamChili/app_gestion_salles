@@ -2,6 +2,7 @@
 from models.salle import Salle
 from data.dao_salle import DataSalle
 from services.services_salle import ServiceSalle
+from views.view_salle import ViewSalle
 #connexion à la base de données
 data_salle = DataSalle()
 connexion = data_salle.get_connection()
@@ -63,3 +64,7 @@ if salle:
     salle.afficher_info()
 else:
     print("Salle introuvable")
+
+service = ServiceSalle()
+app = ViewSalle(service)
+app.mainloop()
