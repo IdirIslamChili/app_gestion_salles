@@ -44,10 +44,20 @@ class ViewSalle (ctk.CTk):
     def ajouter_salle(self):
         code = self.entry_code.get()
         libelle = self.entry_libelle.get()
-        type_salle = self.entry_type.get()
+        type = self.entry_type.get()
         capacite = int(self.entry_capacite.get())
 
-        salle = Salle(code, libelle, type_salle, capacite)
+        salle = Salle(code, libelle, type, capacite)
         self.service_salle.ajouter_salle(salle)
 
         self.btn_ajouter.configure(command=self.ajouter_salle)
+
+    def modifier_salle(self):
+        code = self.entry_code.get()
+        libelle = self.entry_libelle.get()
+        type = self.entry_type.get()
+        capacite = int(self.entry_capacite.get())
+
+        self.service_salle.modifier_salle(code, libelle, type, capacite)
+
+        self.btn_modifier.configure(command=self.modifier_salle)
