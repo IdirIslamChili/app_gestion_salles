@@ -23,7 +23,6 @@ class DataSalle:
             (salle.code, salle.libelle, salle.type, salle.capacite)
         )
         connexion.commit()
-        print("Insertion OK :", salle.code)
         crs.close()
         connexion.close()
 
