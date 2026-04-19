@@ -1,6 +1,7 @@
+#Importation
 from models.salle import Salle
 from data.dao_salle import DataSalle
-
+from services.services_salle import ServiceSalle
 #connexion à la base de données
 data_salle = DataSalle()
 connexion = data_salle.get_connection()
@@ -23,7 +24,7 @@ dao.insert_salle(sl4)
 dao.delete_salle("C260")
 
 #Modifier une salle
-sl1_modifie = Salle("INF1010 Modifié", "Laboratoire", 45, "C250")
+sl1_modifie = Salle("C250","INF1010 Modifié", "Laboratoire", 45 )
 dao.update_salle(sl1_modifie)
 
 #Rechercher d'une salle par son code
@@ -42,3 +43,23 @@ if salles:
         print("-------------------")
 else:
     print("Aucune salle trouvée")
+
+#Test du bon fonctionnement de la classe ServiceSalle
+service = ServiceSalle()
+sl5=Salle("C225","NET1011", "Laboratoire", 26)
+resultat = service.ajouter_salle(sl5)
+print ("Ajout : ", resultat)
+
+sl5_modifie = Salle("C225","NET1014_ Modifié", "Laboratoire", 26)
+resultat = service.modifier_salle(sl5_modifie)
+print("Modification : ",resultat)
+
+resultat=service.supprimer_salle("C260")
+print("Suppression :", resultat)
+
+salle = service.rechercher_salle("c225")
+if salle:
+    print("Salle trouvée :")
+    salle.afficher_info()
+else:
+    print("Salle introuvable")
